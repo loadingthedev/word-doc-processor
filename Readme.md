@@ -27,7 +27,7 @@ Before running the script, ensure the following prerequisites are met:
 2. Run the Script: Open a command prompt or terminal in the script's directory. Execute the script with Python:
    
       ```bash
-      python process_docs.py
+      python script.py
       ```
 3. Access Processed Files: Processed documents will be available in the processed_doc subfolder in the script's directory.
 
