@@ -14,11 +14,21 @@ Get-ChildItem -Path $ScriptDir -Filter "*.docx" | ForEach-Object {
     # Original file name
     $FileName = $_.Name
 
+    # file name without extension
+    $FileName = $FileName -replace '\.docx', ''
+
+    # log the file name
+    Write-Host "Processing file: $FileName"
+
     # Remove leading and trailing underscores
     $FileName = $FileName.TrimStart('_').TrimEnd('_')
 
-    # Replace hyphens with spaces
+    # Replace hyphens with spaces and _ with spaces
     $NewFileName = $FileName -replace '-', ' '
+    $NewFileName = $NewFileName -replace '_', ' '
+
+    # Add the .docx extension back to the file name
+    $NewFileName = "$NewFileName.docx"
 
     # Full path for the new file
     $NewFilePath = Join-Path $ProcessedFolder $NewFileName
